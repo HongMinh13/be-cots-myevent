@@ -1,0 +1,4 @@
+FROM postgres:16.2-bullseye
+
+RUN apt update
+RUN apt install postgis postgresql-16-postgis-3 -y

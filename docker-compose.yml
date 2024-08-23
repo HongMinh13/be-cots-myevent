@@ -1,0 +1,20 @@
+version: '3.1'
+
+services: 
+  postgres:
+    build: 
+      context: .
+      dockerfile: Dockerfile.pg
+    environment: 
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_USER=${DATABASE_USER}
+      - POSTGRES_DB=${DATABASE_NAME}
+    ports:
+      - "5432:5432"
+
+  # redis:
+  #   build: 
+  #     context: .
+  #     dockerfile: Dockerfile.redis
+  #   ports:
+  #     - "16379:6379"
