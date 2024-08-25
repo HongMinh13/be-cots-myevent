@@ -34,7 +34,11 @@ export const ormconfig = async (hardCodeEnv?: string) => {
       url: configuration.databaseLocal,
     };
   }
-  if ([APP_ENV.STAGING, APP_ENV.UAT, APP_ENV.RELEASE].includes(nodeEnv)) {
+  if (
+    [APP_ENV.STAGING, APP_ENV.UAT, APP_ENV.RELEASE, APP_ENV.DEV].includes(
+      nodeEnv,
+    )
+  ) {
     /* Get uri connect to db cloud - dev & uat & release environment */
     typeOrmConfig = {
       ...typeOrmConfig,

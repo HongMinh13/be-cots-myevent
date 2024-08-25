@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
 
-import { ChangePasswordInput, UserUpdateInput } from './dto';
+import { ChangePasswordInput, UserUpdateInput } from './dto/request';
 import { IUser } from './interface';
 import { GetUserQuery } from './query/getUser.query';
 
 import { ResponseMessageBase } from '@/common/interfaces/returnBase';
-import { User } from '@/db/entities/User';
 import { Context } from '@/decorators/user.decorator';
 import { messageKey } from '@/i18n';
 import { PasswordUtil } from '@/providers/password';
 import { QueryFilterDto } from '@/common/dtos/queryFilter';
 import { getPaginationResponse } from '@/common/base/getPaginationResponse';
+import { User } from '@/db/entities/User';
 
 @Injectable()
 export class UserService {

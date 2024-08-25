@@ -1,9 +1,9 @@
 import { PaginationInterface } from '@/common/interfaces/pagination';
-import { Role } from '@/db/entities/Role';
+import { RoleData } from '@/main/shared/user/dto/response/role.response';
 import { ObjectType } from '@nestjs/graphql';
 
 @ObjectType({ isAbstract: true })
-export class IRole extends Role {}
+export class IRole extends RoleData {}
 
 @ObjectType({ isAbstract: true })
 export class IRoles extends PaginationInterface<IRole>(IRole) {}
