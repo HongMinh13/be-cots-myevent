@@ -34,8 +34,8 @@ export const configuration = {
     service: process.env.SMTP_SERVICE || 'gmail',
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port: +process.env.SMTP_PORT || 465,
-    user: process.env.SMTP_USER || `236camnguyen@gmail.com`,
+    user: process.env.SMTP_USER || 'trinhlen@gmail.com',
     password: process.env.SMTP_PASS || '',
-    from: process.env.SMTP_FROM || '236camnguyen@gmail.com',
+    from: process.env.SMTP_FROM || 'trinhle@gmail.com',
   },
 };
