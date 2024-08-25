@@ -21,10 +21,10 @@ import { randomCode } from '@/providers/functionUtils';
 import { emailService } from '@/service/smtp/service';
 import { GetUserVerificationRequestQuery } from '@/main/shared/userVerificationRequest/query/getUserVerificationRequest.query';
 import { GetUserQuery } from '@/main/shared/user/query/getUser.query';
-import { User } from '@/db/entities/User';
 import { pick } from 'lodash';
 import { Jwt } from '@/service/jwt/jwt';
 import { Token } from '@/db/entities/Token';
+import { User } from '@/db/entities/User';
 
 @Injectable()
 export class AuthClientService {

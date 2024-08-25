@@ -1,6 +1,6 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 
-import { ChangePasswordInput, UserUpdateInput } from './dto';
+import { ChangePasswordInput, UserUpdateInput } from './dto/request';
 import { IUser } from './interface';
 import { UserService } from './user.service';
 

@@ -13,6 +13,7 @@ export const contentTypes = [
 
 export const APP_ENV = {
   LOCAL: 'local',
+  DEV: 'dev',
   STAGING: 'staging',
   UAT: 'uat',
   RELEASE: 'release',

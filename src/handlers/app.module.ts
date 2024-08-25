@@ -7,6 +7,12 @@ import { JwtStrategy } from '@/providers/strategies/jwt.strategy';
 import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 
+export class ResponseExceptionError {
+  statusCode: number;
+  message: string;
+  error: string;
+}
+
 @Module({
   imports: [
     DatabaseModule,

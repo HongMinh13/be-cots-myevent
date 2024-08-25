@@ -1,4 +1,6 @@
+import { getJoinRelation } from '@/providers/selectionUtils';
 import { Field, ObjectType } from '@nestjs/graphql';
+import { GraphQLResolveInfo } from 'graphql';
 import {
   BaseEntity,
   BeforeInsert,
@@ -26,5 +28,15 @@ export class CustomBaseEntity extends BaseEntity {
   @BeforeUpdate()
   updateTimestampBeforeUpdate() {
     this.updatedAt = new Date();
+  }
+
+  static getRelations(
+    info: GraphQLResolveInfo,
+    withPagination?: boolean,
+    forceInclude?: string[],
+  ): string[] {
+    const fields = [];
+
+    return getJoinRelation(info, fields, withPagination, forceInclude);
   }
 }

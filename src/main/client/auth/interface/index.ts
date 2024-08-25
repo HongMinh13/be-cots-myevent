@@ -1,4 +1,4 @@
-import { Role } from '@/db/entities/Role';
+import { RoleData } from '@/main/shared/user/dto/response/role.response';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 export interface SendCodeVerifyInput {
@@ -30,7 +30,7 @@ export class LoginResponse {
   refreshToken: string;
 
   @Field()
-  role: Role;
+  role: RoleData;
 }
 
 @ObjectType({ isAbstract: true })

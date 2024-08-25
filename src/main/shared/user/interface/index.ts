@@ -1,10 +1,10 @@
 import { ObjectType, PickType } from '@nestjs/graphql';
 
-import { User } from '@/db/entities/User';
 import { PaginationInterface } from '@/common/interfaces/pagination';
+import { UserData } from '../dto/response/user.response';
 
 @ObjectType({ isAbstract: true })
-export class IUser extends PickType(User, [
+export class IUser extends PickType(UserData, [
   'id',
   'avatar',
   'email',
