@@ -41,7 +41,7 @@ export class User extends CustomBaseEntity {
 
   @Column()
   email: string;
-
+  
   @Column()
   dob: Date;
 

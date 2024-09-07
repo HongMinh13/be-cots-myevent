@@ -34,6 +34,9 @@ export class UserVerificationRequest extends CustomBaseEntity {
   @Column({ nullable: false })
   code: string;
 
+  @Column()
+  phoneNumber: string;
+
   @Field()
   @CreateDateColumn()
   expirationTime: Date;

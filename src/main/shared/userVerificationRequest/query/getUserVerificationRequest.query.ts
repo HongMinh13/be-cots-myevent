@@ -10,8 +10,7 @@ export class GetUserVerificationRequestQuery {
     });
 
     if (
-      !verificationRequest ||
-      dayjs().isAfter(dayjs(verificationRequest.expirationTime))
+      !verificationRequest
     ) {
       throw new BadRequestException(messageKey.BASE.CODE_INCORRECT_OR_EXPIRED);
     }

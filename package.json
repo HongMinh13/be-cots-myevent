@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@nestjs/apollo": "^10.0.19",
-    "@nestjs/common": "^9.0.1",
+    "@nestjs/common": "^10.4.1",
     "@nestjs/config": "^0.6.3",
     "@nestjs/core": "^9.0.1",
     "@nestjs/graphql": "^10.0.18",
@@ -51,7 +51,7 @@
     "class-transformer": "^0.2.3",
     "class-validator": "^0.13.1",
     "cron": "^2.3.0",
-    "dayjs": "^1.11.7",
+    "dayjs": "^1.11.13",
     "dotenv": "^8.2.0",
     "exceljs": "^4.2.1",
     "express": "^4.17.1",
