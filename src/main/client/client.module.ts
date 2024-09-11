@@ -9,6 +9,8 @@ import { RoleModule } from '../admin/role/role.module';
 import { UserModule } from '../shared/user/user.module';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { EventTypeModule } from '../shared/eventType/eventType.module';
+import { EventModule } from './event/event.module';
+
 
 @Module({
   imports: [
@@ -32,6 +34,7 @@ import { EventTypeModule } from '../shared/eventType/eventType.module';
         RoleModule,
         UserModule,
         EventTypeModule,
+        EventModule
       ],
     }),
     UploadModule,
@@ -39,6 +42,7 @@ import { EventTypeModule } from '../shared/eventType/eventType.module';
     RoleModule,
     UserModule,
     EventTypeModule,
+    EventModule
   ],
 })
 export class ClientModule {}
