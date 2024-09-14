@@ -4,7 +4,7 @@ export class AddEventTable1714899819123 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(`
         CREATE TABLE IF NOT EXISTS "event" (
-            "id"    uuid    NOT NULL    DEFAULT uuid_generate_v4(),
+            "id"    uuid    NOT NULL    DEFAULT uuid_generate_v4(),   
             "name" varchar(255) NOT NULL,
             "description" varchar(255),
             "img" varchar(255),

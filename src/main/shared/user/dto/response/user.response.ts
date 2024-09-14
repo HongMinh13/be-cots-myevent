@@ -1,5 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { RoleData } from './role.response';
+import { UserStatus } from '@/db/entities/user.entity';
 
 @ObjectType({ isAbstract: true })
 export class UserData {
@@ -22,26 +23,23 @@ export class UserData {
   roleId: string;
 
   @Field()
-  password: string;
-
-  @Field()
   email: string;
 
-  @Field(() => RoleData)
+  @Field(() => RoleData, { nullable: true })
   role: RoleData;
 
-  @Field()
+  @Field({ nullable: true })
   dob: Date;
 
-  @Field()
+  @Field({ nullable: true })
   gender: boolean;
-
-  @Field()
-  hourlySalary: number;
 
   @Field({ nullable: true })
   createdAt: Date;
 
   @Field({ nullable: true })
   updatedAt: Date;
+
+  @Field(() => UserStatus, { nullable: true })
+  status: UserStatus;
 }
