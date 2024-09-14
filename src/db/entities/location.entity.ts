@@ -19,6 +19,9 @@ export class Location extends CustomBaseEntity {
   @Column({ name: 'address' })
   address: string;
 
+  @Column({ name: 'description' })
+  description: string;
+
   @OneToMany(() => LocationRental, (locationRental) => locationRental.location)
   locationRentals: LocationRental[];
 }

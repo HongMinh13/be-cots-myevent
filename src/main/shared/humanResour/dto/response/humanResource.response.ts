@@ -14,6 +14,15 @@ export class HumanResourceData {
   @Field()
   quantity: number;
 
+  @Field()
+  description: string;
+
   @Field({ nullable: true })
   availableQuantity: number;
+
+  @Field({ nullable: true })
+  img: string;
+
+  @Field()
+  createdAt: Date;
 }

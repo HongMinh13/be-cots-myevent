@@ -5,8 +5,8 @@ export class AddDeviceTable1714879650409 implements MigrationInterface {
     await queryRunner.query(`
         CREATE TABLE IF NOT EXISTS "device" (
             "id"    uuid    NOT NULL    DEFAULT uuid_generate_v4(),
-            "name"  varchar NOT NULL,
-            "img"   varchar,
+            "name"  varchar(255) NOT NULL,
+            "img"   varchar(255),
             "hourly_rental_fee" float   DEFAULT 0,
             "quantity" integer NOT NULL DEFAULT 1,
             "created_at"   timestamp with time zone DEFAULT now(),

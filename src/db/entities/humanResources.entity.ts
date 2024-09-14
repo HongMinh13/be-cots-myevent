@@ -16,6 +16,12 @@ export class HumanResources extends CustomBaseEntity {
   @Column({ name: 'quantity' })
   quantity: number;
 
+  @Column({ name: 'description' })
+  description: string;
+
+  @Column({ name: 'img', nullable: true })
+  img: string;
+
   @OneToMany(
     () => HumanResourcesRental,
     (humanResourcesRental) => humanResourcesRental.humanResources,

@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 
 import { getPaginationResponse } from '@/common/base/getPaginationResponse';
 import { QueryFilterDto } from '@/common/dtos/queryFilter';
-import { Role } from '@/db/entities/Role';
+import { Role } from '@/db/entities/role.entity';
 
 @Injectable()
 export class RoleService {

@@ -13,6 +13,8 @@ import { LocationRental } from './locationRental.entity';
 import { Event } from './event.entity';
 import { User } from './user.entity';
 import { HumanResourcesRental } from './humanResourcesRental.entity';
+import { Timeline } from './timeline.entity';
+import { Contract } from './contract.entity';
 
 @Entity('rental')
 export class Rental extends CustomBaseEntity {
@@ -22,6 +24,9 @@ export class Rental extends CustomBaseEntity {
   @Column({ name: 'user_id' })
   userId: string;
 
+  @Column({ name: 'event_id' })
+  eventId: string;
+
   @Column({ name: 'total_price' })
   totalPrice: number;
 
@@ -30,15 +35,6 @@ export class Rental extends CustomBaseEntity {
 
   @Column({ name: 'rental_end_time' })
   rentalEndTime: Date;
-
-  @Column({ name: 'customer_name' })
-  customerName: string;
-
-  @Column({ name: 'customer_phone_number' })
-  customerPhoneNumber: string;
-
-  @Column({ name: 'customer_address' })
-  customerAddress: string;
 
   @Column({ name: 'custom_location' })
   customLocation: string;
@@ -56,9 +52,26 @@ export class Rental extends CustomBaseEntity {
   locationRentals: LocationRental[];
 
   @OneToOne(() => Event, (event) => event.rental)
+  @JoinColumn({ name: 'event_id' })
   event: Event;
 
   @ManyToOne(() => User, (user) => user.rentals)
   @JoinColumn({ name: 'user_id' })
   user: User;
+
+  @OneToMany(() => Timeline, (timeline) => timeline.rental)
+  timelines: Timeline[];
+
+  @OneToOne(() => Contract, (contract) => contract.rental)
+  contract: Contract;
+
+  //Virtual column
+  @Column({
+    type: 'bit',
+    select: false,
+    insert: false,
+    update: false,
+    nullable: true,
+  })
+  monthlyRevenue: number;
 }

@@ -1,4 +1,4 @@
-import { Role } from '@/db/entities/Role';
+import { Role } from '@/db/entities/role.entity';
 import { messageKey } from '@/i18n';
 import { BadRequestException } from '@nestjs/common';
 import { ILike } from 'typeorm';

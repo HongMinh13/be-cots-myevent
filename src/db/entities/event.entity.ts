@@ -21,6 +21,9 @@ export class Event extends CustomBaseEntity {
   @Column({ name: 'description' })
   description: string;
 
+  @Column({ name: 'detail' })
+  detail: string;
+
   @Column({ name: 'img' })
   img: string;
 
@@ -39,14 +42,10 @@ export class Event extends CustomBaseEntity {
   @Column({ name: 'invitation_link' })
   invitationLink: string;
 
-  @Column({ name: 'rental_id' })
-  rentalId: string;
-
   @ManyToOne(() => EventType, (eventType) => eventType.events)
   @JoinColumn({ name: 'event_type_id' })
   eventType: EventType;
 
-  @OneToOne(() => Rental, (rental) => rental.id)
-  @JoinColumn({ name: 'rental_id' })
+  @OneToOne(() => Rental, (rental) => rental.event)
   rental: Rental;
 }
