@@ -1,4 +1,4 @@
-import { EventTypeData } from '@/main/shared/eventType/dto/response/eventTypes.response';
+import { EventTypeData } from '@/main/shared/eventType/dto/response/eventType.response';
 import { RentalData } from '@/main/shared/rental/dto/response/rental.response';
 import { Field, ObjectType } from '@nestjs/graphql';
 
@@ -12,6 +12,9 @@ export class EventData {
 
   @Field()
   description: string;
+
+  @Field()
+  detail: string;
 
   @Field({ nullable: true })
   img: string;

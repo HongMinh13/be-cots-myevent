@@ -1,10 +1,21 @@
+import { EventData } from '@/main/client/event/dto/respone/event.response';
 import { DeviceData } from '@/main/shared/device/dto/response/device.response';
 import { HumanResourceData } from '@/main/shared/humanResour/dto/response/humanResource.response';
 import { LocationData } from '@/main/shared/location/dto/response/location.response';
 import { UserData } from '@/main/shared/user/dto/response/user.response';
 import { Field, ObjectType } from '@nestjs/graphql';
-import { Type } from 'class-transformer';
-import { ValidateNested } from 'class-validator';
+
+@ObjectType({ isAbstract: true })
+export class TimelineData {
+  @Field()
+  id: string;
+
+  @Field()
+  startTime: Date;
+
+  @Field()
+  description: string;
+}
 
 @ObjectType({ isAbstract: true })
 export class RentalData {
@@ -17,24 +28,27 @@ export class RentalData {
   @Field()
   totalPrice: number;
 
-  @Field()
+  @Field({ nullable: true })
   rentalStartTime: Date;
 
-  @Field()
+  @Field({ nullable: true })
   rentalEndTime: Date;
 
-  @Type(() => DeviceData)
-  @ValidateNested({ each: true })
+  @Field({ nullable: true })
+  customLocation: string;
+
   @Field(() => [DeviceData], { nullable: true })
   devices: DeviceData[];
 
-  @Type(() => LocationData)
-  @ValidateNested({ each: true })
   @Field(() => [LocationData], { nullable: true })
   locations: LocationData[];
 
-  @Type(() => HumanResourceData)
-  @ValidateNested({ each: true })
   @Field(() => [HumanResourceData], { nullable: true })
   humanResources: HumanResourceData[];
+
+  @Field(() => EventData, { nullable: true })
+  event: EventData | null;
+
+  @Field(() => [TimelineData], { nullable: true })
+  timelines: TimelineData[];
 }

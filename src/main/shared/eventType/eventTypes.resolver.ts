@@ -1,7 +1,7 @@
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { EventTypeService } from './eventTypes.service';
-import { EventTypeData } from './dto/response/eventTypes.response';
 import { QueryFilterDto } from '@/common/dtos/queryFilter';
+import { EventTypeData } from './dto/response/eventType.response';
 
 @Resolver()
 export class EventTypeResolver {

@@ -3,7 +3,6 @@ import { Injectable } from '@nestjs/common';
 import { getManager } from 'typeorm';
 import { QueryFilterDto } from '@/common/dtos/queryFilter';
 import { getPaginationResponse } from '@/common/base/getPaginationResponse';
-import { EventTypeData } from './dto/response/eventTypes.response';
 
 @Injectable()
 export class EventTypeService {
