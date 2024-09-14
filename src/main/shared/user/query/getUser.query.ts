@@ -1,4 +1,4 @@
-import { User } from '@/db/entities/User';
+import { User } from '@/db/entities/user.entity';
 import { messageKey } from '@/i18n';
 import { BadRequestException } from '@nestjs/common';
 

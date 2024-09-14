@@ -1,6 +1,6 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
-import { User } from '../db/entities/User';
+import { User } from '../db/entities/user.entity';
 
 import { CACHE_NAMESPACE, RedisClientSingleton } from '../service/aws/redis';
 import { AuthenticationError } from 'apollo-server-express';

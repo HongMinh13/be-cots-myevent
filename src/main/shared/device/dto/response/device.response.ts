@@ -17,6 +17,12 @@ export class DeviceData {
   @Field()
   quantity: number;
 
+  @Field()
+  description: string;
+
   @Field({ nullable: true })
   availableQuantity: number;
+
+  @Field()
+  createdAt: Date;
 }

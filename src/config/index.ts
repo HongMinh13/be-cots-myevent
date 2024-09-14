@@ -19,6 +19,10 @@ export const configuration = {
     s3BucketName: process.env.S3_BUCKET,
     mainQueueUrl: process.env.MAIN_QUEUE_URL,
   },
+  stripe: {
+    secretKey: process.env.STRIPE_SECRET_KEY,
+    camille_secret_key: process.env.STRIPE_CAMILLE_SECRET_KEY,
+  },
   jwt: {
     secretKey: process.env.JWT_SECRET || 'nestapp@1234',
     refreshSecretKey: process.env.JWT_REFRESH_SECRET || 'nestapp@1234',

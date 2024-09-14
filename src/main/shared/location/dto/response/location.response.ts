@@ -15,5 +15,11 @@ export class LocationData {
   img: string;
 
   @Field()
+  description: string;
+
+  @Field()
   hourlyRentalFee: number;
+
+  @Field()
+  createdAt: Date;
 }

@@ -15,7 +15,7 @@ import dayjs from 'dayjs';
 import {
   UserVerificationRequest,
   UserVerificationRequestType,
-} from '@/db/entities/UserVerificationRequest';
+} from '@/db/entities/userVerificationRequest.entity';
 import { EntityManager, getManager } from 'typeorm';
 import { randomCode } from '@/providers/functionUtils';
 import { emailService } from '@/service/smtp/service';
@@ -23,8 +23,8 @@ import { GetUserVerificationRequestQuery } from '@/main/shared/userVerificationR
 import { GetUserQuery } from '@/main/shared/user/query/getUser.query';
 import { pick } from 'lodash';
 import { Jwt } from '@/service/jwt/jwt';
-import { Token } from '@/db/entities/Token';
-import { User } from '@/db/entities/User';
+import { Token } from '@/db/entities/token.entity';
+import { User, UserStatus } from '@/db/entities/user.entity';
 
 @Injectable()
 export class AuthClientService {
@@ -167,6 +167,12 @@ export class AuthClientService {
         messageKey.BASE.INCORRECT_EMAIL_OR_PASSWORD,
       );
     });
+
+    if (user.status === UserStatus.INACTIVE) {
+      throw new BadRequestException(
+        'Tài khoản này đã bị khóa. Vui lòng liên hệ với quản trị viên để biết thêm chi tiết.',
+      );
+    }
 
     await PasswordUtil.validateHash(password, user.password, true);
 

@@ -19,6 +19,9 @@ export class Device extends CustomBaseEntity {
   @Column({ name: 'quantity' })
   quantity: number;
 
+  @Column({ name: 'description' })
+  description: string;
+
   @OneToMany(() => DeviceRental, (deviceRental) => deviceRental.device)
   deviceRentals: DeviceRental[];
 

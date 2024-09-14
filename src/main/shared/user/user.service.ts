@@ -10,7 +10,7 @@ import { messageKey } from '@/i18n';
 import { PasswordUtil } from '@/providers/password';
 import { QueryFilterDto } from '@/common/dtos/queryFilter';
 import { getPaginationResponse } from '@/common/base/getPaginationResponse';
-import { User } from '@/db/entities/User';
+import { User } from '@/db/entities/user.entity';
 
 @Injectable()
 export class UserService {

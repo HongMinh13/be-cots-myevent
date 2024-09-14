@@ -1,4 +1,4 @@
-import { UserVerificationRequest } from '@/db/entities/UserVerificationRequest';
+import { UserVerificationRequest } from '@/db/entities/userVerificationRequest.entity';
 import { messageKey } from '@/i18n';
 import { BadRequestException } from '@nestjs/common';
 import dayjs from 'dayjs';
@@ -10,7 +10,8 @@ export class GetUserVerificationRequestQuery {
     });
 
     if (
-      !verificationRequest
+      !verificationRequest ||
+      dayjs().isAfter(dayjs(verificationRequest.expirationTime))
     ) {
       throw new BadRequestException(messageKey.BASE.CODE_INCORRECT_OR_EXPIRED);
     }
