@@ -1,4 +1,4 @@
-import { EventData } from '@/main/client/event/dto/respone/event.response';
+import { EventData } from '@/main/shared/event/dto/response/event.response';
 import { DeviceData } from '@/main/shared/device/dto/response/device.response';
 import { HumanResourceData } from '@/main/shared/humanResour/dto/response/humanResource.response';
 import { LocationData } from '@/main/shared/location/dto/response/location.response';

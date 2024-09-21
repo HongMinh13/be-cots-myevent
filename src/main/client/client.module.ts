@@ -9,8 +9,9 @@ import { RoleModule } from '../admin/role/role.module';
 import { UserModule } from '../shared/user/user.module';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { EventTypeModule } from '../shared/eventType/eventType.module';
-import { EventModule } from './event/event.module';
 import { ContractModule } from '../shared/contract/contract.module';
+import { EventModule } from '../shared/event/event.module';
+import { DeviceModule } from '../shared/device/device.module';
 
 
 @Module({
@@ -36,7 +37,8 @@ import { ContractModule } from '../shared/contract/contract.module';
         UserModule,
         EventTypeModule,
         EventModule,
-        ContractModule
+        ContractModule,
+        DeviceModule
       ],
     }),
     UploadModule,
@@ -45,7 +47,8 @@ import { ContractModule } from '../shared/contract/contract.module';
     UserModule,
     EventTypeModule,
     EventModule,
-    ContractModule
+    ContractModule,
+    DeviceModule
   ],
 })
 export class ClientModule {}
