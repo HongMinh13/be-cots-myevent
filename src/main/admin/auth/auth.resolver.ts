@@ -1,4 +1,4 @@
-import { ResponseMessageBase } from '@/base/interface';
+import { ResponseMessageBase } from '@/common/interfaces/returnBase';
 import { AuthClientService } from '@/main/client/auth/auth.service';
 import { RefreshTokenDto, SignInDto, SignOutDto } from '@/main/client/auth/dto';
 import { LoginResponse, RefreshResponse } from '@/main/client/auth/interface';

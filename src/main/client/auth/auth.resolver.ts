@@ -1,6 +1,6 @@
 import { Args, Mutation, Resolver } from '@nestjs/graphql';
 import { AuthClientService } from './auth.service';
-import { ResponseMessageBase } from '@/base/interface';
+import { ResponseMessageBase } from '@/common/interfaces/returnBase';
 import {
   CodeVerifyDto,
   RefreshTokenDto,
