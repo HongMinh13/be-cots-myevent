@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { EventTypeResolver } from './eventTypes.resolver';
-import { EventTypeService } from './eventTypes.service';
+import { EventTypeResolver } from './eventType.resolver';
+import { EventTypeService } from './eventType.service';
 import { EventTypeRepository } from '@/db/repositories/eventType.repository';
 
 @Module({

@@ -6,7 +6,7 @@ import { UserService } from './user.service';
 
 import { Auth } from '@/decorators/auth.decorator';
 import { Context, GetContext } from '@/decorators/user.decorator';
-import { ResponseMessageBase } from '@/base/interface';
+import { ResponseMessageBase } from '@/common/interfaces/returnBase';
 
 @Auth()
 @Resolver()
