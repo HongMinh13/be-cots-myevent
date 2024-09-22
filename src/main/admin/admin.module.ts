@@ -6,6 +6,11 @@ import { join } from 'path';
 import { RoleModule } from './role/role.module';
 import { AuthAdminModule } from './auth/auth.module';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
+import { EventModule } from '../shared/event/event.module';
+import { DeviceModule } from '../shared/device/device.module';
+import { EventTypeModule } from '../shared/eventType/eventType.module';
+import { HumanResourceModule } from '../shared/humanResources/humanResource.module';
+import { LocationModule } from '../shared/location/location.module';
 
 @Module({
   imports: [
@@ -23,10 +28,23 @@ import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
         };
         return graphQLFormattedError;
       },
-      include: [RoleModule, AuthAdminModule],
+      include: [
+        RoleModule,
+        AuthAdminModule,
+        EventModule,
+        DeviceModule,
+        EventTypeModule,
+        HumanResourceModule,
+        LocationModule
+      ],
     }),
     RoleModule,
     AuthAdminModule,
+    EventModule,
+    DeviceModule,
+    EventTypeModule,
+    HumanResourceModule,
+    LocationModule
   ],
 })
 export class AdminModule {}

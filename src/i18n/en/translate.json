@@ -13,5 +13,8 @@
   "REFRESH_TOKEN_EXPIRE": "Refresh token expired",
   "SHARE_EVENT": {
     "COMMON_ERR_NOT_FOUND": "{0.obj} not found"
-  }
+  },
+  "DEVICE_ALREADY_RENTED": "Thiết bị đã được thuê",
+  "EMPLOYEE_ALREADY_RENTED": "Nhân viên đã được thuê",
+  "LOCATION_ALREADY_RENTED": "Địa điểm đã được thuê"
 }
