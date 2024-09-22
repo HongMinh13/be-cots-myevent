@@ -1,6 +1,6 @@
 import { EventData } from '@/main/shared/event/dto/response/event.response';
 import { DeviceData } from '@/main/shared/device/dto/response/device.response';
-import { HumanResourceData } from '@/main/shared/humanResour/dto/response/humanResource.response';
+import { HumanResourceData } from '@/main/shared/humanResources/dto/response/humanResource.response';
 import { LocationData } from '@/main/shared/location/dto/response/location.response';
 import { UserData } from '@/main/shared/user/dto/response/user.response';
 import { Field, ObjectType } from '@nestjs/graphql';
