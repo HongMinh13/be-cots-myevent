@@ -75,7 +75,7 @@ export class ContractService {
       );
 
       const contracts = await getPaginationResponse(queryBuilderFilter, query);
-
+      //
       return {
         ...contracts,
         items: contracts.items.map(this.getContractDto),
@@ -96,7 +96,7 @@ export class ContractService {
       );
 
       const contracts = await getPaginationResponse(queryBuilderFilter, query);
-
+     // console.log(queryBuilder.getQueryAndParameters()) //đây nè
       return {
         ...contracts,
         items: contracts.items.map(this.getContractDto),
