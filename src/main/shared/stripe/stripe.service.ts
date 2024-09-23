@@ -10,7 +10,7 @@ import dayjs from 'dayjs';
 
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
-import { StripeAdapter } from '@/service/stripe'//'@/service/stripe';
+import { StripeAdapter } from '@/service/stripe';
 import { getManager } from 'typeorm';
 import Stripe from 'stripe';
 
