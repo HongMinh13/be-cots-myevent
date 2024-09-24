@@ -10,15 +10,15 @@ import { UserModule } from '../shared/user/user.module';
 import { ApolloServerPluginLandingPageLocalDefault } from 'apollo-server-core';
 import { EventTypeModule } from '../shared/eventType/eventType.module';
 import { ContractModule } from '../shared/contract/contract.module';
-<<<<<<< Updated upstream
 import { EventModule } from '../shared/event/event.module';
 import { DeviceModule } from '../shared/device/device.module';
-=======
 import { MailModule } from '../shared/mail/mail.module';
 import { EmailSendLogModule } from '../shared/emailSendLog/emailSendLog.module';
 import { GuestModule } from '../shared/guest/guest.module';
 import { StripeModule } from '../shared/stripe/stripe.module';
->>>>>>> Stashed changes
+import { LocationModule } from '../shared/location/location.module';
+import { HumanResourceModule } from '../shared/humanResources/humanResource.module';
+import { RentalModule } from '../shared/rental/rental.module';
 
 
 @Module({
@@ -45,14 +45,14 @@ import { StripeModule } from '../shared/stripe/stripe.module';
         EventTypeModule,
         EventModule,
         ContractModule,
-<<<<<<< Updated upstream
-        DeviceModule
-=======
+        DeviceModule,
         GuestModule,
         EmailSendLogModule,
         StripeModule,
         MailModule,
->>>>>>> Stashed changes
+        LocationModule,
+        HumanResourceModule,
+        RentalModule
       ],
     }),
     UploadModule,
@@ -62,14 +62,14 @@ import { StripeModule } from '../shared/stripe/stripe.module';
     EventTypeModule,
     EventModule,
     ContractModule,
-<<<<<<< Updated upstream
-    DeviceModule
-=======
+    DeviceModule,
     MailModule,
     StripeModule,
     GuestModule,
     EmailSendLogModule,
->>>>>>> Stashed changes
+    LocationModule,
+    HumanResourceModule,
+    RentalModule
   ],
 })
 export class ClientModule {}
