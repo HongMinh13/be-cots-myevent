@@ -11,6 +11,7 @@ import { DeviceModule } from '../shared/device/device.module';
 import { EventTypeModule } from '../shared/eventType/eventType.module';
 import { HumanResourceModule } from '../shared/humanResources/humanResource.module';
 import { LocationModule } from '../shared/location/location.module';
+import { ContractModule } from '../shared/contract/contract.module';
 
 @Module({
   imports: [
@@ -35,7 +36,8 @@ import { LocationModule } from '../shared/location/location.module';
         DeviceModule,
         EventTypeModule,
         HumanResourceModule,
-        LocationModule
+        LocationModule,
+        ContractModule
       ],
     }),
     RoleModule,
@@ -44,7 +46,8 @@ import { LocationModule } from '../shared/location/location.module';
     DeviceModule,
     EventTypeModule,
     HumanResourceModule,
-    LocationModule
+    LocationModule,
+    ContractModule
   ],
 })
 export class AdminModule {}
