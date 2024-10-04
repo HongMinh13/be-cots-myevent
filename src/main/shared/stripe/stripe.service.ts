@@ -40,6 +40,7 @@ export class StripeService {
     request: RequestWithRawBody,
     webhookType: WEBHOOK_TYPE,
   ) {
+    console.log('WebhookSignature', signature);
     if (!signature) {
       return {
         statusCode: 500,
@@ -56,7 +57,6 @@ export class StripeService {
         webhookSecret,
       );
 
-      console.log('WebhookSecretKeyAndEvent', webhookSecret, event.type);
       switch (event.type) {
         case WEBHOOK_EVENT_TYPE.CHECKOUT_SESSION.COMPLETED:
         case WEBHOOK_EVENT_TYPE.CHECKOUT_SESSION.ASYNC_PAYMENT_SUCCEEDED: {
@@ -109,10 +109,12 @@ export class StripeService {
       return getManager().transaction(async (trx) => {
         const contract = await trx
           .getRepository(Contract)
-          .findOne({ id: contractId });
+          .createQueryBuilder('contract')
+          .leftJoinAndSelect('contract.rental', 'rental')
+          .where('contract.id = :contractId', { contractId })
+          .getOne();
 
-        contract.status =
-          CONTRACT_STATUS[status as keyof typeof CONTRACT_STATUS];
+        contract.status = status as unknown as CONTRACT_STATUS;
         contract.paymentIntentId = object.payment_intent as string;
         await trx.getRepository(Contract).save(contract);
 
@@ -200,7 +202,7 @@ export class StripeService {
         id: humanResourceRental.humanResources.id,
         name: humanResourceRental.humanResources.name,
         price: humanResourceRental.humanResources.hourlySalary,
-        image: null,
+        image: humanResourceRental.humanResources.img,
         quantity: humanResourceRental.quantity,
       };
     });
@@ -257,43 +259,38 @@ export class StripeService {
         ...locationProducts,
       ];
 
-      console.log('items', items);
-
       const products: Record<
         string,
         { price: number; product: Stripe.Product }
       > = {};
 
       for (const item of items) {
-        console.log('item', item);
         const product = await this.stripeAdapter.createProduct({
           productName: item.name,
           productSystemId: item.id,
           imageUrls: item.image ? [item.image] : [],
-          description: `Deposit 30% of ${item.price}$`,
+          description: `Deposit 30% of ${item.price}đ`,
         });
-        console.log('product', product);
+       
         products[item.id] = {
           product,
           price: item.price,
         };
       }
-      console.log('products', products);
+     
 
       const lines = Object.keys(products).map((id) => {
         const productItem = items.find((serviceItem) => serviceItem.id === id);
 
         return {
           amount: products[id].price * DEPOSIT_PERCENT,
-          currency: 'usd',
+          currency: 'vnd',
           product: products[id].product.id,
           quantity: productItem.quantity,
         };
       });
 
-      console.log('lines', lines);
       const lineItems = await this.stripeAdapter.createLineItems(lines);
-      console.log('lineItems', lineItems);
 
       const result = await this.stripeAdapter.createCheckoutSession({
         successUrl,
@@ -346,7 +343,7 @@ export class StripeService {
           productName: item.name,
           productSystemId: item.id,
           imageUrls: item.image ? [item.image] : [],
-          description: `Deposit 70% of ${item.price}$`,
+          description: `Deposit 70% of ${item.price}đ`,
         });
 
         products[item.id] = {
@@ -360,7 +357,7 @@ export class StripeService {
 
         return {
           amount: products[id].price * (1 - DEPOSIT_PERCENT),
-          currency: 'usd',
+          currency: 'vnd',
           product: products[id].product.id,
           quantity: productItem.quantity,
         };

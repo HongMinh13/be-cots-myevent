@@ -202,6 +202,11 @@ export class ContractService {
     if (!contract.paymentIntentId) {
       throw new BadRequestException('Hợp đồng chưa được đặt cọc');
     }
+    //tự fix
+    if(contract.paymentIntentId){
+      contract.status = CONTRACT_STATUS.DepositPaid;
+      await this.stripeService.checkoutRemainBillingContract(contract,rest,user);
+    }
 
     return await this.stripeService.checkoutRemainBillingContract(
       contract,
