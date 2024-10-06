@@ -12,6 +12,8 @@ import { EventTypeModule } from '../shared/eventType/eventType.module';
 import { HumanResourceModule } from '../shared/humanResources/humanResource.module';
 import { LocationModule } from '../shared/location/location.module';
 import { ContractModule } from '../shared/contract/contract.module';
+import { UploadModule } from '../shared/upload/upload.module';
+import { CloudinaryModule } from '../shared/cloudinary/cloudinary.module';
 
 @Module({
   imports: [
@@ -37,7 +39,9 @@ import { ContractModule } from '../shared/contract/contract.module';
         EventTypeModule,
         HumanResourceModule,
         LocationModule,
-        ContractModule
+        ContractModule,
+        UploadModule,
+        CloudinaryModule,
       ],
     }),
     RoleModule,
@@ -47,7 +51,9 @@ import { ContractModule } from '../shared/contract/contract.module';
     EventTypeModule,
     HumanResourceModule,
     LocationModule,
-    ContractModule
+    ContractModule,
+    UploadModule,
+    CloudinaryModule,
   ],
 })
 export class AdminModule {}
