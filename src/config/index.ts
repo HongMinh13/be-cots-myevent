@@ -42,4 +42,11 @@ export const configuration = {
     password: process.env.SMTP_PASS || '',
     from: process.env.SMTP_FROM || 'trinhle@gmail.com',
   },
+  cloudinaryService: {
+    name: process.env.CLOUD_NAME,
+    key: process.env.CLOUDINARY_KEY,
+    secret: process.env.CLOUDINARY_SECRET,
+    originFolder: process.env.CLOUDINARY_ORIGIN_FOLDER,
+  }
 };
+export const CLOUDINARY = 'Cloudinary';
